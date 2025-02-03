@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIERRES PRÉCIEUSES</title>
+    <link rel="stylesheet" href="style.css">
+	<link rel="icon" type="image/png" href="images/diamant.png">
+</head>
+<body>
+    <header>
+		<div class="header-content">
+			<figure>
+				<a href="index.html"><img src="images/pierre.webp" width="125" height="50" alt="Logo Pierres Précieuses"></a>
+			</figure>
+			<nav>
+				<ul>
+					<li><a href="index.html">Accueil</a></li>
+					<li><a href="history.html">Histoire</a></li>
+					<li><a href="gallery.html">Galerie</a></li>
+					<li><a href="belief.html">Croyance</a></li>
+				</ul>
+			</nav>
+			<a id="connexion" href="connexion.html">Se connecter</a>
+		</div>
+    </header>
+
+    <main>
+		<h1>Histoire des Pierres Précieuses</h1>
+
+		<section>
+			<h2>Origine Géologique des Pierres Précieuses</h2>
+			<p>Les pierres précieuses trouvent leur origine dans les profondeurs de la Terre, où elles se forment sous des conditions extrêmes de température et de pression. Ce processus, appelé cristallisation, permet aux minéraux de solidifier en structures atomiques bien ordonnées, créant ainsi des cristaux uniques. Ces trésors naturels se forment parfois sur des millions, voire des milliards d'années.</p>
+			<p>Par exemple, les premiers diamants ont cristallisé il y a environ 3,3 milliards d'années dans le manteau terrestre. Les mouvements tectoniques et l'érosion ont ensuite permis à ces pierres rares de remonter à la surface. Aujourd'hui, les gisements de pierres précieuses se trouvent dans des régions comme l'Afrique, l'Asie et l'Amérique du Sud.</p>
+		</section>
+
+		<section>
+			<h2>Les Pierres Précieuses dans l'Histoire Humaine</h2>
+			<p>Depuis les temps anciens, les pierres précieuses ont captivé l'humanité par leur beauté et leur rareté. Les Égyptiens utilisaient la turquoise et le lapis-lazuli pour créer des amulettes protectrices et des bijoux royaux. En Inde, les diamants étaient considérés comme sacrés et porteurs de pouvoirs mystiques.</p>
+			<p>Pendant l'Antiquité grecque et romaine, les pierres précieuses comme le rubis et le saphir étaient associées à la richesse et au pouvoir. Elles ornaient les couronnes des empereurs et étaient souvent offertes en cadeau diplomatique. Au Moyen Âge, on croyait que certaines pierres avaient des propriétés curatives ou pouvaient repousser les mauvais esprits.</p>
+		</section>
+
+		<section>
+			<h2>Symbolisme et Spiritualité</h2>
+			<p>Les pierres précieuses ne sont pas seulement admirées pour leur éclat physique, mais aussi pour leur symbolisme profond. Dans de nombreuses cultures, elles sont associées à des qualités spécifiques : le rubis représente la passion, le diamant symbolise la pureté et l'émeraude évoque la renaissance.</p>
+			<p>Certaines traditions attribuent également aux pierres précieuses des pouvoirs spirituels. Par exemple, les croyances médiévales associaient chaque pierre à une vertu ou une protection particulière. Le quartz rose était censé favoriser l'amour, tandis que l'améthyste était utilisée pour calmer l'esprit.</p>
+		</section>
+
+		<section>
+			<h2>Les Pierres Précieuses dans l'Art et la Mode</h2>
+			<p>À travers les siècles, les pierres précieuses ont été intégrées dans des œuvres d'art, des bijoux somptueux et même des objets religieux. Pendant la Renaissance, elles étaient un symbole de statut social parmi les élites européennes. Aujourd'hui encore, elles continuent d'inspirer les créateurs de mode et de joaillerie.</p>
+			<p>Avec l'industrialisation au XIXe siècle, ces trésors naturels sont devenus plus accessibles au grand public. Cependant, certaines pierres rares comme la tanzanite ou l'alexandrite restent très prisées pour leur exclusivité.</p>
+		</section>
+
+		<section>
+			<h2>Conclusion : Un Héritage Intemporel</h2>
+			<p>Les pierres précieuses sont bien plus que de simples ornements : elles racontent une histoire géologique fascinante et témoignent de la créativité humaine à travers les âges. Leur éclat intemporel continue de captiver notre imagination et reste un symbole universel de beauté et de raffinement.</p>
+		</section>
+	</main>
+
+    <footer>
+		<p>&copy; 2025 - Pierres Précieuses. Tous droits réservés.</p>
+		<p>Créé par AMMARI Menaouer et COSTA Mathéo</p>
+	</footer>
+</body>
+</html>
