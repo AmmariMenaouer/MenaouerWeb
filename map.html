@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang = "fr">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+    <link rel="stylesheet" href="style.css">
+	<link rel="icon" type="image/png" href="images/favicon.jpg">
+	</head>
+	<body>
+		<header>
+			<div class="header-content">
+				<figure>
+					<div class="image-zoom">
+						<a href="index.html"><img src="images/logo.png" width="125" height="50" alt="Logo du projet"/></a>
+					</div>
+				</figure>
+				<nav>
+					<ul>
+						<li><a href="index.html">Accueil</a></li>
+						<li><a href="sprites.html">Sprites</a></li>
+						<li><a href="map.html">Map</a></li>
+						<li><a href="cdc.html">Cahier des Charges</a></li>
+						<li><a href="strat.html">Stratégie</a></li>
+						<li><a href="advancement.html">Avancement</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<main>
+			<h1>Explorez la Carte et ses Multiples Défis</h1>
+			
+			<section>
+				<h2>Introduction à la Carte de Simulation</h2>
+				<p>Dans notre jeu de simulation, la carte joue un rôle crucial en définissant l'espace dans lequel gardiens et intrus interagissent. Constituée d'une grille N x N, la carte est peuplée d'obstacles variés qui influencent les stratégies de déplacement et de visibilité. Chaque partie de la carte est générée avec soin pour offrir une expérience à la fois aléatoire et stratégiquement complexe, rendant chaque session de jeu unique.</p>
+			</section>
+			
+			<section>
+				<h2>Composition de la Carte</h2>
+				<p>La carte est divisée en cases, chacune pouvant contenir un obstacle ou être libre pour permettre le passage. La configuration des obstacles est déterminante pour le gameplay, car elle influence directement les mouvements possibles du gardien et ses lignes de vision.</p>
+				<figure>
+					<img src="images/map.png" width="500" height="300" alt="Map du parc"/>
+					<figcaption>fig 1: Map du parc </figcaption>
+				</figure>
+			</section>
+			
+			<section>
+				<h2>Types d’Obstacles et Leur Impact</h2>
+				<p>Les intrus, éléments clés de notre simulation, se distinguent par leurs sprites variés qui communiquent visuellement leur nature et leur stratégie</p>
+				<ol>
+					<li>
+						<h3>Arbres</h3>
+						<ul>
+							<li>
+								<h4>Fonction</h4>
+								<p>Les arbres bloquent la vision du gardien mais permettent le passage. Ils sont essentiels pour ajouter de la complexité à la stratégie visuelle du jeu.</p>
+							</li>
+							<li>
+								<h4>Design</h4>
+								<p>Visuellement, les arbres sont représentés avec divers feuillages et hauteurs, offrant un aspect naturel et varié à la carte.</p>
+							</li>
+						</ul>
+						<figure>
+							<img src="images/arbres.png" width="500" height="300" alt="Arbres du parc"/>
+							<figcaption>fig 2: Arbres du parc </figcaption>
+						</figure>
+					</li>
+					
+					<li>
+						<h3>Eau</h3>
+						<ul>
+							<li>
+								<h4>Fonction</h4>
+								<p>L'eau représente une barrière infranchissable pour le gardien mais n'entrave pas sa vue. Elle oblige les joueurs à réfléchir à des itinéraires alternatifs.</p>
+							</li>
+							<li>
+								<h4>Design</h4>
+								<p>Les plans d'eau sont représentés avec des effets de transparence et des animations légères qui suggèrent le mouvement de l'eau.</p>
+							</li>
+						</ul>
+						<figure>
+							<img src="images/eau.png" width="500" height="300" alt="Lac du parc"/>
+							<figcaption>fig 3: Lac du parc </figcaption>
+						</figure>
+					</li>
+					
+					<li>
+						<h3>Roche</h3>
+						<ul>
+							<li>
+								<h4>Fonction</h4>
+								<p>Les murs sont des obstacles complets, bloquant à la fois le passage et la vision. Ils sont les défis les plus restrictifs sur la carte.</p>
+							</li>
+							<li>
+								<h4>Design</h4>
+								<p>Les murs sont illustrés avec différents matériaux (pierre, brique, bois) pour diversifier visuellement la grille et ajouter un élément de réalisme.</p>
+							</li>
+						</ul>
+						<figure>
+							<img src="images/roche.png" width="500" height="300" alt="Roche du parc"/>
+							<figcaption>fig 4: Roche du parc </figcaption>
+						</figure>
+					</li>
+				</ol>	
+					
+			</section>
+		</main>
+		<footer>
+			<p>&copy; 2025 - CY GUARD. Tous droits réservés.</p>
+			<p>Créé par AMMARI Menaouer, COSTA Mathéo et ZURKHANG Tenzin</p>
+			<p>Cliquez <a class ="footer-link" href="https://github.com/AirSoks/CY_Guard">ici</a> pour accéder au projet</p>
+		</footer>
+    </body>
+</html>

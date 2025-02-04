@@ -1,0 +1,114 @@
+/* Général */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+	background-color: #fff;
+    color: #333;
+    line-height: 1.6;
+	display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+	color: #222222;
+}
+
+h1, h2, h3{
+    font-family: 'Playfair Display', serif;
+    color: #383838;
+	text-align: center
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+ul, ol {
+    list-style-type: none;
+}
+
+
+a:hover {
+    color: #8f8f8f;
+    transition: color 0.3s;
+}
+
+/* Header */
+header {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    top: 0;
+	background-color: #383838;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+}
+
+/* Nav */
+nav {
+    font-weight: bold;
+	font-size: 1.5em;
+	margin-left : 50px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+#connexion {
+    margin-left: auto;
+	padding-right: 30px;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+/* main */
+main {
+    padding: 0 10%;
+}
+
+/* Footer */
+footer {
+    background: #383838;
+    color: #fff;
+    text-align: center;
+    padding: 0px 0;
+    margin-top: 50px;
+	user-select: none;
+}
+
+.footer-link {
+	text-decoration: underline;
+}
+
+.pdf-link {
+	color: #383838;
+	text-decoration: underline;
+}
+
+#pdf-link {
+	margin-top : 50px;
+	text-align: center;
+}
+
+img{
+	transition: transform .2s; 
+}
+
+.image-zoom :hover{
+	transform: scale(1.05);
+}
+
+.horizontal{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  gap : 40px;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang = "fr">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avancement</title>
+    <link rel="stylesheet" href="style.css">
+	<link rel="icon" type="image/png" href="images/favicon.jpg">
+	</head>
+	<body>
+		<header>
+			<div class="header-content">
+				<figure>
+					<div class="image-zoom">
+						<a href="index.html"><img src="images/logo.png" width="125" height="50" alt="Logo du projet"/></a>
+					</div>
+				</figure>
+				<nav>
+					<ul>
+						<li><a href="index.html">Accueil</a></li>
+						<li><a href="sprites.html">Sprites</a></li>
+						<li><a href="map.html">Map</a></li>
+						<li><a href="cdc.html">Cahier des Charges</a></li>
+						<li><a href="strat.html">Stratégie</a></li>
+						<li><a href="advancement.html">Avancement</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<main>
+			<h1>Avancement du Projet</h1>
+			<p>La génération procédurale de la carte repose sur un algorithme de densité optimisé permettant d'obtenir un environnement structuré et équilibré. L’objectif principal est d’assurer une répartition cohérente des éléments du terrain tout en garantissant un rendu naturel et diversifié.</p>
+			<section>
+				<h2>Méthodologie</h2>
+						
+				<h3>Initialisation du Terrain</h3>
+				<p>La carte est d’abord entièrement remplie de plaines. Cette étape permet d’établir une base neutre sur laquelle les autres éléments viendront s’intégrer. Les plaines constituent l’élément par défaut du terrain et assurent un espace cohérent pour l’ajout de structures plus complexes.</p>
+
+				<h3>Placement du Lac</h3>
+				<p>Un algorithme dédié définit l’emplacement du lac, qui occupe une partie significative de la carte. Son positionnement est déterminé par des critères de distribution spatiale, garantissant qu’il ne soit ni trop central ni trop excentré. Sa forme est générée en suivant un modèle de densité progressive, évitant ainsi un rendu trop géométrique et artificiel.</p>
+
+				<h3>Insertion des Rochers</h3>
+				<p>Une fois le lac placé, un rocher de taille moyenne est ajouté au terrain. Son objectif est de rompre la linéarité du paysage et de proposer une diversité topographique. Son emplacement est défini en fonction des distances minimales à respecter vis-à-vis des autres éléments pour éviter des regroupements excessifs.</p>
+
+				<h3>Distribution des Arbres</h3>
+				<p>Enfin, la végétation est implantée de manière contrôlée. Les arbres sont placés selon un modèle de dispersion semi-aléatoire qui évite les regroupements excessifs tout en maintenant une certaine logique naturelle. Cette répartition permet de conserver un équilibre entre zones boisées et zones dégagées.</p>
+			</section>
+			<section>
+				<h2>Résultats et Optimisations</h2>
+				<p>Les différentes itérations de cet algorithme permettent d’obtenir des cartes variées tout en conservant une structure homogène. Plusieurs variantes ont été générées et analysées afin d’optimiser la cohérence du terrain et d’assurer une expérience utilisateur optimale.Les images fournies illustrent les différentes étapes du processus et permettent d’observer l’évolution de la génération. Cette approche garantit une mise en place efficace du terrain et une distribution logique des éléments naturels, assurant ainsi une base solide pour l’intégration des mécaniques de jeu.</p>
+				
+				<div class="horizontal">
+					<img src="images/generation1.png" width="500" height="500" alt="Géneration de la map 1"/>
+					<img src="images/generation2.png" width="500" height="500" alt="Géneration de la map 1"/>
+				</div>
+			</section>
+		</main>
+		<footer>
+			<p>&copy; 2025 - CY GUARD. Tous droits réservés.</p>
+			<p>Créé par AMMARI Menaouer, COSTA Mathéo et ZURKHANG Tenzin</p>
+			<p>Cliquez <a class ="footer-link" href="https://github.com/AirSoks/CY_Guard">ici</a> pour accéder au projet</p>
+		</footer>
+    </body>
+</html>
