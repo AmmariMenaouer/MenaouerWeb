@@ -1,0 +1,596 @@
+:root {
+    /*  Couleurs principales */
+    --fond-clair: #f4f6fa;
+    --fond-sombre: #1e1e1e;
+    --texte: #1c1c1c;
+    --texte-inverse: #ffffff;
+    --carte: rgba(255, 255, 255, 0.65);
+    --carte-sombre: rgba(40, 40, 40, 0.8);
+    --ombre: rgba(0, 0, 0, 0.05);
+    --bordure: #cccccc;
+  
+    --primaire: #0d6efd;
+    --accent: #4ea8de;
+    --accent-secondaire: #90caf9;
+  
+    /* Couleurs météo */
+    --temp: #f36c6c;
+    --humide: #4ea8de;
+    --pression: #ffd54f;
+    --pluie: #58c897;
+  
+    --ensoleille: #ffe57f;
+    --nuageux: #b0bec5;
+    --pluvieux: #4fc3f7;
+    --orageux: #9575cd;
+    --neigeux: #e1f5fe;
+    --brumeux: #cfd8dc;
+  
+    /* 🖋️ Typographie */
+    --font-principale: 'Segoe UI', sans-serif;
+    --font-titre: 'Poppins', sans-serif;
+    --taille-texte: 1rem;
+    --taille-titre: 1.5rem;
+  
+    /*  Espacements & Layout */
+    --espace-xs: 0.25rem;
+    --espace-sm: 0.5rem;
+    --espace: 1rem;
+    --espace-lg: 2rem;
+    --arrondi: 12px;
+  
+    /*  Effets */
+    --ombre-carte: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --blur: blur(10px);
+    --transition: 0.3s ease;
+    --transition-courte: 0.2s ease-in-out;
+    --transition-longue: 0.5s ease-in-out;
+  }
+  
+  /*  Mode sombre */
+  .dark-mode {
+    --fond-clair: #1e1e1e;
+    --texte: #f1f1f1;
+    --texte-inverse: #111;
+    --carte: var(--carte-sombre);
+    --ombre: rgba(255, 255, 255, 0.08);
+    --bordure: #444;
+    --primaire: #4ea8de;
+    --accent: #90caf9;
+    --accent-secondaire: #82b1ff;
+  
+    --temp: #ff8a80;
+    --humide: #81d4fa;
+    --pression: #fff176;
+    --pluie: #80cbc4;
+  }
+  .navbar {
+    padding: calc(var(--espace-lg) + 0.5rem) 4%;
+    font-size: 1.45rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.35));
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.25);
+    border-radius: 0 0 var(--arrondi) var(--arrondi);
+    animation: navbarEntrance 1s ease-out forwards;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition:
+      background var(--transition),
+      box-shadow var(--transition),
+      padding var(--transition);
+  }
+  
+  .navbar-brand {
+    font-size: 2.4rem;
+    font-weight: 900;
+    letter-spacing: 0.8px;
+    background: linear-gradient(90deg, var(--accent), var(--primaire), var(--temp));
+    background-size: 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientSlide 8s ease infinite, floatLogo 3s ease-in-out infinite;
+  }
+  
+  @keyframes floatLogo {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  
+  @keyframes gradientSlide {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .navbar-nav .nav-link {
+    position: relative;
+    font-size: 1.3rem;
+    padding: 0.8rem 1.6rem;
+    margin: 0 var(--espace-xs);
+    border-radius: 30px;
+    overflow: hidden;
+    color: var(--texte-inverse);
+    transition:
+      transform var(--transition),
+      color var(--transition);
+    z-index: 1;
+    isolation: isolate;
+    backdrop-filter: blur(5px);
+  }
+  
+  .navbar-nav .nav-link::before {
+    content: '';
+    position: absolute;
+    width: 180%;
+    height: 0;
+    left: -40%;
+    bottom: 0;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
+    transition: height var(--transition);
+    border-radius: 50%;
+    z-index: -1;
+  }
+  
+  .navbar-nav .nav-link:hover::before {
+    height: 350%;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    transform: translateY(-4px) scale(1.05);
+    color: var(--accent-secondaire);
+  }
+  
+  @media (max-width: 768px) {
+    .navbar {
+      padding: var(--espace) 6%;
+      font-size: 1.1rem;
+    }
+  
+    .navbar-brand {
+      font-size: 2rem;
+    }
+  
+    .navbar-nav .nav-link {
+      font-size: 1.15rem;
+      padding: 0.75rem 1.2rem;
+    }
+  }
+  body {
+    /*  Reset de base */
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+  
+    /*  Fond image dynamique + couleur fallback */
+    background-color: var(--fond-clair); /* fallback couleur */
+    background-image: var(--image-fond, none); /* permet de changer via :root ou JS */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  
+    /* 🖋️ Texte lisible sur tous les fonds */
+    color: var(--texte);
+    font-family: var(--font-principale, 'Segoe UI', system-ui, -apple-system, sans-serif);
+    font-size: 1rem;
+    line-height: 1.6;
+    letter-spacing: 0.25px;
+  
+    /*  Verre dépoli stylé */
+    backdrop-filter: blur(6px) saturate(160%);
+    -webkit-backdrop-filter: blur(6px) saturate(160%);
+  
+    /*  Transition douce */
+    transition:
+      background-color var(--transition),
+      color var(--transition),
+      backdrop-filter var(--transition);
+  
+    /* UX */
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+  
+  .dark-mode body {
+    background-color: var(--fond-sombre);
+    color: var(--texte-inverse);
+    --image-fond: linear-gradient(135deg, #121212, #1a1a1a);
+  }
+  
+
+  /*  Sélecteur de langue & boutons de thème */
+.select-langue,
+#bouton-theme,
+#bouton-mode {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px) saturate(160%);
+  -webkit-backdrop-filter: blur(10px) saturate(160%);
+  border-radius: 1rem;
+  color: var(--texte-inverse);
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition), color var(--transition);
+}
+
+.select-langue:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+  color: var(--accent);
+}
+
+#bouton-theme,
+#bouton-mode {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+}
+
+#bouton-theme:hover,
+#bouton-mode:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: rotate(15deg) scale(1.15);
+  color: var(--accent-secondaire);
+}
+
+/* 🧊 Cartes météo */
+.card,
+.weather-card {
+  background: var(--carte);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  border: 1px solid var(--bordure);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 24px var(--ombre);
+  padding: 1.5rem;
+  color: var(--texte);
+  transition:
+    transform 0.35s ease,
+    background-color var(--transition),
+    box-shadow var(--transition),
+    border var(--transition),
+    color var(--transition);
+}
+
+/* Survol effet glassy & lumineux */
+.card:hover,
+.weather-card:hover {
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+  border-color: var(--accent);
+}
+
+/* Image météo dans les cartes */
+.weather-card img {
+  border-radius: 1rem;
+  border: 2px solid var(--bordure);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  max-width: 100px;
+}
+
+
+
+/*  Variables du mode sombre appliquées */
+.dark-mode {
+    --fond-clair: var(--fond-sombre);
+    --bordure-clair: var(--bordure-sombre);
+    --texte-clair: var(--texte-inverse);
+  }
+  
+  /*  Conteneur global du scroller */
+  .scroll-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    overflow: hidden;
+    padding: 1.5rem 1rem;
+    max-width: 100%;
+    backdrop-filter: blur(6px) saturate(140%);
+    -webkit-backdrop-filter: blur(6px) saturate(140%);
+    transition: all var(--transition);
+  }
+  
+  /*  Bande horizontale défilante */
+  .scroller {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1rem;
+    padding: 1rem 0.5rem;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) transparent;
+    width: 100%;
+  }
+  
+  .scroller::-webkit-scrollbar {
+    height: 6px;
+  }
+  .scroller::-webkit-scrollbar-thumb {
+    background-color: var(--accent);
+    border-radius: 6px;
+  }
+  
+  /* cartes horaires individuelles */
+  .case-heure {
+    scroll-snap-align: center;
+    flex: 0 0 auto;
+    width: 100px;
+    max-width: 22vw;
+    min-width: 80px;
+    transition: transform var(--transition);
+  }
+  
+  /*  Carte météo par heure */
+  .carte-heure {
+    background: var(--fond-clair);
+    border: 1px solid var(--bordure-clair);
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    text-align: center;
+    color: var(--texte-clair);
+    transition: transform var(--transition), box-shadow var(--transition), background-color var(--transition);
+  }
+  
+  .carte-heure:hover {
+    transform: translateY(-6px) scale(1.04);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* 🌤️ Icône météo */
+  .icone-meteo {
+    width: 44px;
+    height: 44px;
+    margin: 0.5rem auto;
+    display: block;
+    transition: transform var(--transition);
+  }
+  
+  .icone-meteo:hover {
+    transform: scale(1.15);
+  }
+  
+  /* ⬅️➡️ Boutons de navigation */
+  .btn-scroll {
+    background-color: rgba(255, 255, 255, 0.15);
+    border: none;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--texte-clair);
+    transition: transform var(--transition), background-color var(--transition), color var(--transition);
+  }
+  
+  .btn-scroll:hover {
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.25);
+  }
+  
+  /* 🎨 Adaptation en mode sombre */
+  .dark-mode .carte-heure {
+    background: rgba(30, 30, 30, 0.65);
+    border-color: var(--accent);
+    color: var(--texte-inverse);
+  }
+  
+  .dark-mode .icone-meteo {
+    filter: drop-shadow(0 0 2px var(--accent-secondaire));
+  }
+  
+  .dark-mode .btn-scroll {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: var(--accent-secondaire);
+  }
+  .dark-mode .btn-scroll:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+/* === MODE NUIT ÉLÉGANT & ULTRA LISIBLE === */
+/* === MODE NUIT ÉLÉGANT & ULTRA LISIBLE === */
+.dark-mode {
+    --carte: #262f42;
+    --fond-clair: #31394d;
+    --primaire: #4ea8de;
+    --texte: #f0f4fa;
+    --texte-secondaire: #c0c9d6;
+    --transition: 0.3s ease;
+  }
+  
+  /* Conteneur du graphique */
+  .chart-container {
+    background-color: var(--carte);
+    padding: 2rem;
+    border-radius: 1.2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    transition: background-color var(--transition), box-shadow var(--transition);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    color: var(--texte);
+  }
+  
+  /* Texte et valeurs visibles */
+  .chart-container h2,
+  .chart-container p,
+  .chart-container .value,
+  .chart-container .grande-valeur,
+  .chart-container canvas,
+  .chart-container .legend,
+  .chart-container .metric-label {
+    color: var(--texte);
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  
+  /* Numéros mis en valeur dans le graphique */
+  .dark-mode .chart-container .value,
+  .dark-mode .chart-container .grande-valeur,
+  .dark-mode .chart-container .valeur {
+    color: #fdfefe !important;
+    font-size: 1.6rem !important;
+    font-weight: 700;
+    letter-spacing: 0.03rem;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.08);
+  }
+  
+
+  .chart-container::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.06), transparent 70%);
+    animation: floatLight 12s infinite linear;
+    z-index: 0;
+  }
+  
+  @keyframes floatLight {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  
+  .metric-switcher {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    z-index: 1;
+    position: relative;
+  }
+  
+  /* Boutons métriques */
+  .metric-switcher .btn {
+    background-color: var(--fond-clair);
+    color: var(--primaire);
+    border: 2px solid var(--primaire);
+    border-radius: 25px;
+    padding: 0.6rem 1.4rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    font-size: 1rem;
+  }
+  
+  .metric-switcher .btn:hover {
+    background-color: var(--primaire);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .metric-switcher .btn.active {
+    background-color: var(--primaire);
+    color: #fff;
+    border-color: var(--primaire);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+  }
+  
+
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .chart-container {
+      padding: 1.2rem;
+    }
+  
+    .metric-switcher .btn {
+      font-size: 0.85rem;
+      padding: 0.5rem 1rem;
+    }
+  }
+  /* Mode jour (clair) */
+footer#pied {
+  background: linear-gradient(90deg, #d0eaff, #ffe3f0);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 2px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.25);
+  border-radius: 40px 40px 0 0;
+  padding: 2rem 1rem;
+  transition: all var(--transition);
+}
+
+footer#pied a {
+  color: #333;
+  font-weight: 500;
+  transition: color var(--transition);
+  padding: 0.2rem 0.8rem;
+  border-radius: 20px;
+}
+
+/* Mode nuit */
+.dark-mode footer#pied {
+  background: #000000;
+  border-top: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 -20px 60px rgba(255, 255, 255, 0.05);
+}
+
+.dark-mode footer#pied a {
+  color: #f5e08e; /* blond lumineux */
+}
+
+  
+  /* ================= COOKIES MODAL ================= */
+  .cookie-modal-backdrop {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .cookie-modal-box {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    max-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    animation: pop-in 0.3s ease-out;
+  }
+  .btn-retour {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--primaire);
+    color: white;
+    padding: 0.8rem 1rem;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform var(--transition);
+    z-index: 1000;
+  }
